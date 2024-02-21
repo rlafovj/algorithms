@@ -1,14 +1,18 @@
-import java.util.Scanner;
 
 public class Gugudan {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("1~9 사이의 정수값 입력");
-
-        int num = sc.nextInt();
-
-        for(int i = 0; i < 9; i++){
-            System.out.println(num+" * "+(i+1)+" = "+(num*(i+1)));
+    public static void main(String[] args) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.printf(" %3d * %d = %3d ", (j + 2), (i + 1), ((j + 2) * (i + 1)));
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 4; j < 8; j++) {
+                System.out.printf(" %3d * %d = %3d ", (j + 2), (i + 1), ((j + 2) * (i + 1)));
+            }
+            System.out.println();
         }
     }
 }

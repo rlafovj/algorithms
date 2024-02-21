@@ -1,23 +1,30 @@
 package kaupOOP;
 
+import memberOOP.MemberModel;
+
 import java.util.Scanner;
 
 public class KaupView {
     //카우프 지수 구하는 프로그램
+    static String test;
     public static void main(String[] args){
-        Person person = new Person();
         Scanner sc = new Scanner(System.in);
+        KaupService service = new KaupServiceImpl(){};
+        MemberModel mm = new MemberModel(service.createHeight(),service.createWeight());
+        double bmi = service.createBmi();
+        String bodyMass = service.createBodyMass();
 
-        person.setName(sc.next());
-        person.createWeight();
-        person.createWeight();
-        person.createBmi(person.getHeight(), person.getWeight());
-        person.createBodyMass();
 
-        System.out.printf("%s\n", person.getName());
-        System.out.printf("%.1f\n", person.getHeight());
-        System.out.printf("%.1f\n", person.getWeight());
-        System.out.printf("%.1f\n", person.getBmi());
-        System.out.printf("%s", person.getBodyMass());
+        service.createHeight();
+        service.createWeight();
+        service.createBmi();
+        service.createBodyMass();
+
+
+//        System.out.printf("%s\n", person.getName());
+        System.out.printf("%.1f\n", service.createHeight());
+        System.out.printf("%.1f\n", service.createWeight());
+        System.out.printf("%.1f\n", service.createBmi());
+        System.out.printf("%s", service.createBodyMass());
     }
 }
