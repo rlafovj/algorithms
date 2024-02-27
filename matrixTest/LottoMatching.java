@@ -9,9 +9,8 @@ public class LottoMatching {
             System.out.println("1부터 45사이의 숫자 6개를 입력하세요.");
             for (int i = 0; i < 6; i++) {
                 arr[i] = sc.nextInt();
-                if (arr[i] < 0 && arr[i] > 46) {
+                if (arr[i] < 0 || arr[i] > 46) {
                     System.out.println("범위를 초과했습니다. 1부터 45 사이의 값을 입력하세요.");
-                    arr[i] = 0;
                     i--;
                 }
             }return arr;
@@ -62,16 +61,16 @@ public class LottoMatching {
 
     class PickLotto{
         private static int[] pickLotto(int[] arr){
-        for (int i = 0; i < 6; i++) {
-            arr[i] = (1 + (int) (Math.random() * 45));
-            for (int j = 0; j < i; j++) {
-                if (arr[i] == arr[j]) {
-                    i--;
+            for (int i = 0; i < 6; i++) {
+                arr[i] = (1 + (int) (Math.random() * 45));
+                for (int j = 0; j < i; j++) {
+                    if (arr[i] == arr[j]) {
+                        i--;
+                    }
                 }
             }
+            return arr;
         }
-        return arr;
-    }
     }
 
     public static void main(String[] args) {
@@ -100,52 +99,3 @@ public class LottoMatching {
         }
     }
 }
-
-//    private static int[] pickLotto(int[] arr){
-//        for (int i = 0; i < 6; i++) {
-//            arr[i] = (1 + (int) (Math.random() * 8));
-//            for (int j = 0; j < i; j++) {
-//                if (arr[i] == arr[j]) {
-//                    i--;
-//                }
-//            }
-//        }
-//        return arr;
-//    }
-
-//    private static int[] bubbleSort(int[] arr){
-//        int temp;
-//        for (int i = 0; i < 6; i++) {
-//            for (int j = 0; j < 5; j++) {
-//                if (arr[j + 1] < arr[j]) {
-//                    temp = arr[j];
-//                    arr[j] = arr[j + 1];
-//                    arr[j + 1] = temp;
-//                }
-//            }
-//        }
-//        return arr;
-//    }
-//
-//    private static void printLotto(int[] arr){
-//        for (int i = 0; i < 6; i++) {
-//            System.out.printf("%d ", arr[i]);
-//        }
-//    }
-//
-//    private static int checkDuplicates(int[] arr1, int[] arr2) {
-//        int grade = 0;
-//        for(int i=0; i<6; i++){
-//            boolean check = false;
-//            for(int j=0; j<6; j++){
-//                if(arr1[i] == arr2[j]){
-//                    check = true;
-//                }
-//            }
-//            if(check==true){
-//                grade++;
-//            }
-//        }
-//        return grade;
-//    }
-//}
